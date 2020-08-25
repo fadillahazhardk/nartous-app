@@ -7,6 +7,7 @@ const xss = require('xss-clean');
 const mongoSanitize = require('express-mongo-sanitize');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const appErrorHandler = require('./controllers/appErrorController');
@@ -66,6 +67,9 @@ app.use(
     ]
   })
 );
+
+//Compress text response to client
+app.use(compression());
 
 //Serving static file
 app.use(express.static(`${__dirname}/public`));
