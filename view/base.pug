@@ -1,0 +1,34 @@
+//-CARA KOMEN DI PUG
+//komen yang akan muncul ke html
+//-komen yang tidak akan muncul ke html
+//-CARA INTEGRASI JS DI PUG
+//-buffered code : h1= syntax js
+//-unbeffered code : -syntax js
+//-interpolasi : #{syntax js}
+
+html(lang="en")
+    block header
+        head
+            meta(charset="UTF-8")
+            meta(name="viewport" content="width=device-width, initial-scale=1.0")
+            title Natours | #{title}
+            link(type="image/png" href="/img/favicon.png" rel="shortcut icon")
+            link(href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet")
+            link(rel="stylesheet" href="/css/style.css")
+
+    body
+        //Header
+        include _header
+
+        //Content
+        block content
+
+        //Footer
+        include _footer
+
+        //CLIENT-SIDE JS
+        //- Ada problem parcel dan axios, jdi pake link saja
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js")
+        //- script(src="/js/mapbox.js")
+        //- script(src="/js/login.js")
+        script(src="/js/bundle.js")
