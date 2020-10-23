@@ -77,14 +77,13 @@ userSchema.pre('save', function(next) {
   next();
 });
 
-//
+//Select only active user
 userSchema.pre(/^find/, function(next) {
   this.find({ active: { $ne: false } });
   next();
 });
 
 //Create method for each document
-
 userSchema.methods.correctPassword = async function(
   candidatePassword,
   userPassword
